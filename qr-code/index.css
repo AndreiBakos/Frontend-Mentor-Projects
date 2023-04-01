@@ -39,11 +39,11 @@ body {
 }
 
 .info-content p {
-  font-weight: 700;
-  font-size: 25px;
+  font-weight: 900;
+  font-size: 26px;
 }
 
 .info-content span {
-  opacity: .5;
-  font-size: 20px;
+  opacity: .4;
+  font-size: 17px;
 }
