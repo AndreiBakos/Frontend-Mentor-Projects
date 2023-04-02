@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b age-calculator-deploy -d dist"
+    "deploy": "gh-pages -d dist -b main -t -s age-calculator"
   },
   "dependencies": {
     "react": "^18.2.0",
