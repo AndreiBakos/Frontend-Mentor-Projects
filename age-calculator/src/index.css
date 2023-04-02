@@ -1,26 +1,10 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
 }
 
 body {
@@ -29,41 +13,97 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: hsl(0, 0%, 94%);
+  padding: 40px;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.App {
+  background-color: hsl(0, 0%, 100%);
+  padding: 30px;
+  border-radius: 15px;
+  border-bottom-right-radius: 15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 50vw;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.inputLabelContainerList {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  gap: 5%;
+  margin-left: 20px;
+}
+
+.inputLabelContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.label {
+  color: hsl(0, 1%, 44%);
+  font-weight: bolder;
+}
+
+.customInput::-webkit-inner-spin-button,
+.customInput::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.customInput {
+  width: 8rem;
+  height: 2rem;
+  border-width: 1px;
+  border-radius: 15px;
+  padding: 20px;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.customInput:focus{
+  border-color: hsl(259, 100%, 65%);
+  outline: none;
+  caret-color: hsl(259, 100%, 65%);
+}
+
+.calculateAgeContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.horizontalLine {
+  width: 100%;
+  border: 1px solid hsl(0, 0%, 86%);
+  border-radius: 25px;
+  height: 0;
+}
+
+.arrowBtn {
+  width: 60px;
+  height: 60px;
+}
+
+.arrowBtn:hover {
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  opacity: .9;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.ageTextContent {
+  display: 'flex';
+  flex-direction: column;
+  font-size: 45px;
+  text-align: start;
+}
+
+.ageTextContent > h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.propValue {
+  color: hsl(259, 100%, 65%);;
 }
