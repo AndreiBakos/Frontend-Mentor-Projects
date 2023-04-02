@@ -1,34 +1,26 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import CustomInput from './Components/CustomInput'
+import ArrowBtn from './assets/images/icon-arrow.svg';
+import Age from './Components/Age';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <main className="App">
+      <div className='inputLabelContainerList'>
+        <CustomInput label='DAY'/>
+        <CustomInput label='MONTH'/>
+        <CustomInput label='YEAR'/>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div className='calculateAgeContainer'>
+        <div className='horizontalLine'/>
+        <img className='arrowBtn' src={ArrowBtn} alt='' />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+      <div className='AgeResultContainer'>
+        <Age day={26} month={3} year={36} />
+      </div>
+    </main>
   )
 }
 
