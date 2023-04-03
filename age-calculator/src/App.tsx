@@ -5,20 +5,133 @@ import ArrowBtn from './assets/images/icon-arrow.svg';
 import Age from './Components/Age';
 
 function App() {
+  const defaultValue = '--';
+  const defaultDayLabelError = 'Must be a valid day';
+  const defaultMonthLabelError = 'Must be a valid month';
+  const defaultYearLabelError = 'Must be in the past';
+
+  const [ inputDay, setInputDay ] = useState(defaultValue);
+  const [ day, setDay ] = useState<string>(defaultValue);
+  const [ dayLabelError, setDayLabelError ] = useState<string>('');
+
+  const [ inputMonth, setinputMonth ] = useState(defaultValue);
+  const [ month, setMonth ] = useState<string>(defaultValue);
+  const [ monthLabelError, setMonthLabelError ] = useState<string>('');
+
+  const [ inputYear, setinputYear ] = useState(defaultValue);
+  const [ year, setYear ] = useState<string>(defaultValue);
+  const [ yearLabelError, setYearLabelError ] = useState<string>('');
+
+  const calculateAge = () => {
+    const currentDate = new Date();
+
+    const validDay = isValidDay();
+    const validMonth = isValidMonth();
+    const validYear = isValidYear(currentDate);
+
+    if(!validDay || !validMonth || !validYear) {
+      return;
+    }
+
+    setDay((_day: string) => _day = calculateDay(currentDate).toString());
+    setMonth((_month: string) => _month = calculateMonth(currentDate).toString())
+    setYear((_year: string) => _year = calculateYear(currentDate).toString());
+  }
+
+  const calculateDay = (currentDate: Date) => {
+    const currentDay = currentDate.getDate();
+    const nrOfDays = 31;
+
+    if(Number(inputDay) <= currentDay){
+      return currentDay - Number(inputDay);
+    }
+
+    return nrOfDays - (Number(inputDay) - currentDay);
+  }
+
+  const calculateMonth = (currentDate: Date) => {
+    const currentDay = currentDate.getDate();
+    const currentMonth = Number(inputMonth) <= 7 ? currentDate.getMonth() + 1 : currentDate.getMonth();
+    const nrOfMonths = 12;
+
+    if(Number(inputMonth) === currentMonth){
+      if(Number(inputDay) <= currentDay){
+        return 0;
+      }
+
+      return nrOfMonths - 1;
+    }    
+
+    if(Number(inputMonth) < currentMonth){
+      return currentMonth - Number(inputMonth);
+    }
+
+    return nrOfMonths - (Number(inputMonth) - currentMonth);
+  }
+
+  const calculateYear = (currentDate: Date) => {
+    const currentDay = currentDate.getDate();
+    const currentMonth = currentDate.getMonth() + 1;
+    const currentYear = currentDate.getFullYear();
+
+    if((Number(inputMonth) < currentMonth)){
+      return (currentYear - Number(inputYear));
+    }
+
+    if(Number(inputMonth) == currentMonth){
+      if(Number(inputDay) <= currentDay){
+        return (currentYear - Number(inputYear));
+      }
+
+      return (currentYear - Number(inputYear)) - 1;
+    }
+
+    return (currentYear - Number(inputYear)) - 1;
+  }
+
+  const isValidDay = () => {
+    if(inputDay !== defaultValue && Number(inputDay) <= 31){
+      setDayLabelError('');
+      return true;
+    }
+
+    setDayLabelError(defaultDayLabelError);
+    return false;
+  }
+
+  const isValidMonth = () => {
+    if(inputMonth !== defaultValue && Number(inputMonth) <= 12){
+      setMonthLabelError('');
+      return true;
+    }
+
+    setMonthLabelError(defaultMonthLabelError);
+    return false;
+  }
+
+  const isValidYear = (currentDate: Date) => {
+    if(inputYear !== defaultValue && Number(inputYear) <= currentDate.getFullYear()){
+      setYearLabelError('');
+      return true;
+    }
+
+    setYearLabelError(defaultYearLabelError);
+    return false;
+  }
 
   return (
     <main className="App">
       <div className='inputLabelContainerList'>
-        <CustomInput label='DAY'/>
-        <CustomInput label='MONTH'/>
-        <CustomInput label='YEAR'/>
+        <CustomInput label='DAY' value={inputDay} setValue={setInputDay} inputMaxLength={2} labelError={dayLabelError}/>
+        <CustomInput label='MONTH' value={inputMonth} setValue={setinputMonth} inputMaxLength={2} labelError={monthLabelError} />
+        <CustomInput label='YEAR' value={inputYear} setValue={setinputYear} inputMaxLength={4} labelError={yearLabelError} />
       </div>
       <div className='calculateAgeContainer'>
         <div className='horizontalLine'/>
-        <img className='arrowBtn' src={ArrowBtn} alt='' />
+        <img className='arrowBtn' src={ArrowBtn} alt='' onClick={calculateAge}/>
       </div>
       <div className='AgeResultContainer'>
-        <Age day={26} month={3} year={36} />
+        <Age day={day} month={month} year={year} />
       </div>
     </main>
   )

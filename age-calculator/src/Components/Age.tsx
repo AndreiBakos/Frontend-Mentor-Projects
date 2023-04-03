@@ -1,10 +1,19 @@
+import { useEffect } from "react";
 
 interface AgeProps {
-    day: number,
-    month: number,
-    year: number
+    day: string,
+    month: string,
+    year: string
 }
 export default function Age({day, month, year}: AgeProps) {
+
+    useEffect(() => {
+        const currentDate = new Date();
+        console.log(currentDate.getDate());
+        
+        day = `${currentDate.getDay() - Number(day)}`;
+        console.log(day)
+    },[])
     return(
         <div className="ageTextContent">
             <h1>
@@ -22,3 +31,4 @@ export default function Age({day, month, year}: AgeProps) {
         </div>
     );
 }
+
