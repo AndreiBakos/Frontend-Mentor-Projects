@@ -16,10 +16,9 @@ body {
 .App {
   background-color: hsl(0, 0%, 100%);
   margin: 0;
-  padding: 0;
   padding: 30px;
   border-radius: 15px;
-  border-bottom-right-radius: 15rem;
+  border-bottom-right-radius: 12rem;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -74,15 +73,24 @@ body {
 }
 
 .horizontalLine {
-  width: 100%;
-  border: 1px solid hsl(0, 0%, 86%);
-  border-radius: 25px;
-  height: 0;
+  flex: 1;
+  height: 1px;
+  background-color: black;
 }
 
 .arrowBtn {
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
+}
+
+@media screen and (max-width: 500px) {
+  .arrowBtn {
+    /* margin: 0 10px; */
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    margin-left: 55%;
+  }
 }
 
 .arrowBtn:hover {
