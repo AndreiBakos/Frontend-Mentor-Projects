@@ -9,10 +9,7 @@ export default function Age({day, month, year}: AgeProps) {
 
     useEffect(() => {
         const currentDate = new Date();
-        console.log(currentDate.getDate());
-        
         day = `${currentDate.getDay() - Number(day)}`;
-        console.log(day)
     },[])
     return(
         <div className="ageTextContent">

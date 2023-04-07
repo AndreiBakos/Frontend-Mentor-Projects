@@ -25,7 +25,7 @@ function App() {
   const calculateAge = () => {
     const currentDate = new Date();
 
-    const validDay = isValidDay();
+    const validDay = isValidDay(currentDate);
     const validMonth = isValidMonth();
     const validYear = isValidYear(currentDate);
 
@@ -89,14 +89,31 @@ function App() {
     return (currentYear - Number(inputYear)) - 1;
   }
 
-  const isValidDay = () => {
-    if(inputDay !== defaultValue && Number(inputDay) <= 31){
-      setDayLabelError('');
-      return true;
+  const isValidDay = (currentDate: Date) => {
+    if(inputDay === defaultValue || Number(inputDay) > 31){
+      setDayLabelError(defaultDayLabelError);
+      return;
     }
 
-    setDayLabelError(defaultDayLabelError);
-    return false;
+    if(!isValidMonth()){
+      return;
+    }
+    const MaxNrOfDays = 31;
+
+    if(Number(inputMonth) >= 7) {
+      if(Number(inputMonth) % 2 == 1 && Number(inputDay) === MaxNrOfDays){
+        setDayLabelError(defaultDayLabelError);
+        return;
+      }
+    } else {
+      if(Number(inputMonth) % 2 == 0 && Number(inputDay) === MaxNrOfDays){
+        setDayLabelError(defaultDayLabelError);
+        return;
+      }
+    }
+
+    setDayLabelError('');
+    return true;
   }
 
   const isValidMonth = () => {
