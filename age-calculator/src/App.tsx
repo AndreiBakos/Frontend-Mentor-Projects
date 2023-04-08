@@ -5,7 +5,7 @@ import ArrowBtn from './assets/images/icon-arrow.svg';
 import Age from './Components/Age';
 
 function App() {
-  const defaultValue = '--';
+  const defaultValue = '- -';
   const defaultDayLabelError = 'Must be a valid day';
   const defaultMonthLabelError = 'Must be a valid month';
   const defaultYearLabelError = 'Must be in the past';

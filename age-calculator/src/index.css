@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins');
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Poppins;
 }
 
 body {
@@ -41,6 +43,8 @@ body {
 .label {
   color: hsl(0, 1%, 44%);
   font-weight: bolder;
+  padding: 0;
+  margin: 0 0 0 5px;
 }
 
 .customInput::-webkit-inner-spin-button,
@@ -71,12 +75,13 @@ body {
   align-items: center;
   box-sizing: border-box;
   width: 100%;
+  margin-top: 40px;
 }
 
 .horizontalLine {
   flex: 1;
   height: 1px;
-  background-color: black;
+  background-color: hsl(0, 0%, 86%);
 }
 
 .arrowBtn {
@@ -115,6 +120,7 @@ body {
 .ageTextContent > h1 {
   margin: 0;
   padding: 0;
+  font-weight: 900;
 }
 
 .propValue {
