@@ -138,9 +138,9 @@ function App() {
   return (
     <main className="App">
       <div className='inputLabelContainerList'>
-        <CustomInput label='DAY' value={inputDay} setValue={setInputDay} inputMaxLength={2} labelError={dayLabelError}/>
-        <CustomInput label='MONTH' value={inputMonth} setValue={setinputMonth} inputMaxLength={2} labelError={monthLabelError} />
-        <CustomInput label='YEAR' value={inputYear} setValue={setinputYear} inputMaxLength={4} labelError={yearLabelError} />
+        <CustomInput label='DAY' value={inputDay} setValue={setInputDay} inputMaxLength={2} labelError={dayLabelError} placeholderValue="DD"/>
+        <CustomInput label='MONTH' value={inputMonth} setValue={setinputMonth} inputMaxLength={2} labelError={monthLabelError} placeholderValue="MM"/>
+        <CustomInput label='YEAR' value={inputYear} setValue={setinputYear} inputMaxLength={4} labelError={yearLabelError} placeholderValue="YYYY"/>
       </div>
       <div className='calculateAgeContainer'>
         <div className='horizontalLine'/>

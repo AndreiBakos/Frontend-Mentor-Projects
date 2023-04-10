@@ -3,9 +3,10 @@ interface CustomInputProps {
     value: string,
     setValue: React.Dispatch<React.SetStateAction<string>>,
     inputMaxLength: number,
-    labelError: string
+    labelError: string,
+    placeholderValue: string
 }
-export default function CustomInput({label, value, setValue, inputMaxLength, labelError}: CustomInputProps) {
+export default function CustomInput({label, value, setValue, inputMaxLength, labelError, placeholderValue}: CustomInputProps) {
     const defaultValue = '--';
 
     const handleInputChange = (newInputValue: string) => {
@@ -27,6 +28,7 @@ export default function CustomInput({label, value, setValue, inputMaxLength, lab
         <div className="inputLabelContainer">
             <p className="label">{label}</p>
             <input
+                placeholder={placeholderValue}
                 style={{
                     border: `1px solid ${labelError.length > 0 ? 'red' : '#dbdbdb'}`,
                     borderRadius: 10}}    
