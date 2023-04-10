@@ -6,25 +6,24 @@ interface AgeProps {
     year: string
 }
 export default function Age({day, month, year}: AgeProps) {
-
     useEffect(() => {
         const currentDate = new Date();
         day = `${currentDate.getDay() - Number(day)}`;
     },[])
     return(
         <div className="ageTextContent">
-            <h1>
+            <p className="dateString">
                 <span className="propValue"> {year} </span> 
                 years
-            </h1>
-            <h1>
+            </p>
+            <p className="dateString">
                 <span className="propValue"> {month} </span> 
                 months
-            </h1>
-            <h1>
+            </p>
+            <p className="dateString">
                 <span className="propValue"> {day} </span> 
                 days
-            </h1>
+            </p>
         </div>
     );
 }

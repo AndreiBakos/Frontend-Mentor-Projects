@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './App.css'
 import CustomInput from './Components/CustomInput'
 import ArrowBtn from './assets/images/icon-arrow.svg';
 import Age from './Components/Age';

@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap');
 :root {
   font-family: Poppins;
 }
@@ -8,43 +8,53 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  place-items: center;
-  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  max-width: 100vw;
   min-height: 100vh;
   background-color: hsl(0, 0%, 94%);
 }
 
 .App {
+  margin: 0;
   background-color: hsl(0, 0%, 100%);
   margin: 0;
-  padding: 30px;
+  padding: 60px;
   border-radius: 15px;
-  border-bottom-right-radius: 12rem;
+  border-bottom-right-radius: 10rem;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  width: 50vw;
+  max-width: 50vw;
+  min-height: 60vh;
+  max-height: 60vh;
 }
+
 
 .inputLabelContainerList {
   display: flex;
-  flex-direction: row;
   box-sizing: border-box;
-  width: 100%;
+  width: 70%;
   align-items: start;
-  gap: 16px;
+  gap: 40px;
 }
 
 .inputLabelContainer {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: start;  
+  width: fit-content;
+}
+
+.inputLabelContainer > input {
+  width: 80%;
 }
 
 .label {
   color: hsl(0, 1%, 44%);
   font-weight: bolder;
   padding: 0;
-  margin: 0 0 0 5px;
+  margin: 0 0 5px 0;
 }
 
 .customInput::-webkit-inner-spin-button,
@@ -75,7 +85,12 @@ body {
   align-items: center;
   box-sizing: border-box;
   width: 100%;
-  margin-top: 40px;
+}
+
+.errorMessage {
+  color: red;
+  text-align: center;
+  font-size: 12px;
 }
 
 .horizontalLine {
@@ -87,15 +102,6 @@ body {
 .arrowBtn {
   width: 80px;
   height: 80px;
-}
-
-@media screen and (max-width: 500px) {
-  .arrowBtn {
-    width: 80px;
-    height: 80px;
-    position: absolute;
-    margin-left: 55%;
-  }
 }
 
 .arrowBtn:hover {
@@ -117,12 +123,67 @@ body {
   text-align: start;
 }
 
-.ageTextContent > h1 {
+.dateString {
   margin: 0;
   padding: 0;
-  font-weight: 900;
+  font-weight: bolder;
+  font-size: 7vh;
 }
 
 .propValue {
   color: hsl(259, 100%, 65%);;
+}
+
+@media screen and (max-width: 800px) {
+  .App {
+    margin: 0;
+    background-color: hsl(0, 0%, 100%);
+    margin: 0;
+    padding: 40px;
+    border-radius: 15px;
+    border-bottom-right-radius: 10rem;
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    max-width: 90vw;
+    min-height: 60vh;
+    max-height: 60vh;
+  }
+
+  .inputLabelContainerList {
+    width: 100%;
+    gap: 16px;
+  }
+
+  .inputLabelContainer{
+    min-width: 10%;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+  }
+
+  .inputLabelContainer > input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 4rem;
+  }
+
+  .calculateAgeContainer {
+    padding: 60px 0 60px 0;
+  }
+
+  .arrowBtn {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    margin-left: 25%;
+  }
+
+  .errorMessage {
+    font-size: 10px;
+  }
+
+  .dateString {
+    font-size: 50px;
+  }
 }

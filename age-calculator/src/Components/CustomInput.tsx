@@ -1,5 +1,3 @@
-import { SetStateAction } from "react";
-
 interface CustomInputProps {
     label: string,
     value: string,
@@ -29,12 +27,14 @@ export default function CustomInput({label, value, setValue, inputMaxLength, lab
         <div className="inputLabelContainer">
             <p className="label">{label}</p>
             <input
-                style={{borderColor: labelError.length > 0 ? 'red' : '#854dff'}}    
+                style={{
+                    border: `1px solid ${labelError.length > 0 ? 'red' : '#dbdbdb'}`,
+                    borderRadius: 10}}    
                 className="customInput"
                 value={value !== defaultValue ? value : ''}    
                 type="number"
                 onChange={ (e) => handleInputChange(e.target.value) }/>
-            {labelError.length > 0 && <p style={{color: 'red'}}>{labelError}</p>}
+            {labelError.length > 0 && <p className="errorMessage">{labelError}</p>}
         </div>
     );
 }
